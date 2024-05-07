@@ -1,8 +1,11 @@
 // "use client";
 
 import { Button, Navbar } from "flowbite-react";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Component() {
+  const generateClassName = ({ isActive }) =>
+    isActive ? "text-cyan-500" : "navbar-link";
   return (
     <Navbar fluid rounded className="shadow-lg bg-white">
       <Navbar.Brand href="/">
@@ -11,17 +14,21 @@ export default function Component() {
         </span>
       </Navbar.Brand>
       <div className="flex md:order-2">
-        <Button>Log in</Button>
+        <Link to="/login">
+          <Button>Log in</Button>
+        </Link>
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
-        <Navbar.Link href="#" active>
-          Home
-        </Navbar.Link>
-        <Navbar.Link href="#">About</Navbar.Link>
-        <Navbar.Link href="#">Services</Navbar.Link>
-        <Navbar.Link href="#">Pricing</Navbar.Link>
-        <Navbar.Link href="#">Contact</Navbar.Link>
+        <NavLink className={generateClassName} to="/">
+          Home{" "}
+        </NavLink>
+        <NavLink className={generateClassName} to="/about">
+          About
+        </NavLink>
+        <NavLink className={generateClassName} to="/supplies">
+          Foods
+        </NavLink>
       </Navbar.Collapse>
     </Navbar>
   );

@@ -1,15 +1,10 @@
 import "./App.css";
-import Navbar from "./components/Navbar/Navbar";
-import Home from "./pages/Home";
-import Container from "./ui/Container";
+import MainLayout from "./layout/MainLayout";
 
 function App() {
   return (
     <div>
-      <Navbar />
-      <Container>
-        <Home />
-      </Container>
+      <MainLayout />
     </div>
   );
 }
