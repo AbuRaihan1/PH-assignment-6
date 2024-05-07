@@ -1,13 +1,15 @@
-import { Alert } from "flowbite-react";
 import "./App.css";
+import Navbar from "./components/Navbar/Navbar";
+import Home from "./pages/Home";
+import Container from "./ui/Container";
 
 function App() {
   return (
     <div>
-      <Alert color="success" onDismiss={() => alert("Alert dismissed!")}>
-        <span className="font-medium">Info alert!</span> Change a few things up
-        and try submitting again.
-      </Alert>
+      <Navbar />
+      <Container>
+        <Home />
+      </Container>
     </div>
   );
 }
