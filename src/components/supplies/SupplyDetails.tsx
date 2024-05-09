@@ -5,12 +5,14 @@ import { useGetSuplliesQuery } from "../../redux/api/api";
 
 const SupplyDetails = () => {
   const { data: supplyDetailsData, isLoading } = useGetSuplliesQuery(undefined);
-  const { id } = useParams();
+  const { _id } = useParams();
+  console.log(_id);
   if (isLoading) {
     return <div>Loading...</div>;
   }
-
-  const singleItem = supplyDetailsData.find((item) => item.id === Number(id));
+  console.log(supplyDetailsData);
+  const singleItem = supplyDetailsData.find((item) => item._id === _id);
+  console.log(singleItem);
   const { title, category, quantity } = singleItem;
   return (
     <Card

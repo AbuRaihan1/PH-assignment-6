@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import SupplyDetails from "../components/supplies/SupplyDetails";
 import About from "../pages/About";
+import Dashboard from "../pages/Dashboard/Dashboard";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
@@ -26,11 +27,12 @@ export const router = createBrowserRouter([
         element: <Supplies />,
       },
       {
-        path: "supplies/:id",
+        path: "supplies/:_id",
         element: <SupplyDetails />,
       },
     ],
   },
+  // commmon path
   {
     path: "/login",
     element: <Login />,
@@ -38,5 +40,11 @@ export const router = createBrowserRouter([
   {
     path: "/register",
     element: <Register />,
+  },
+
+  // extra layout
+  {
+    path: "/dashboard",
+    element: <Dashboard />,
   },
 ]);

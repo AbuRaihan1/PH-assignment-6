@@ -11,7 +11,17 @@ export const baseApi = createApi({
         method: "GET",
       }),
     }),
+    postSupllies: builder.mutation({
+      query: (data) => {
+        console.log(data);
+        return {
+          url: "/supply",
+          method: "POST",
+          body: data,
+        };
+      },
+    }),
   }),
 });
 
-export const { useGetSuplliesQuery } = baseApi;
+export const { useGetSuplliesQuery, usePostSuplliesMutation } = baseApi;
