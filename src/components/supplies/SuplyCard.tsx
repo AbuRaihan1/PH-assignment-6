@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import importedImg from "../../assets/foodPng.jpg";
 const SuplyCard = ({ supply }) => {
   const { title, image, id, category, quantity } = supply;
+  const sendSupplyDetailsId = () => {
+    // return id;
+    console.log("click");
+  };
 
   return (
     <Card
@@ -11,16 +15,16 @@ const SuplyCard = ({ supply }) => {
       imgSrc={importedImg}
     >
       <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-        Title
+        {title}
       </h5>
 
       <h4 className="text-lg font-semibold tracking-tight text-gray-900">
-        Food
+        {category}
       </h4>
 
       <div className="flex items-center justify-between">
         <span className="text-3xl font-bold text-gray-900 dark:text-white">
-          12
+          {quantity}
         </span>
         <Link
           to={`/supplies/${id}`}
