@@ -4,13 +4,16 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const baseApi = createApi({
   reducerPath: "baseApi",
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000" }),
+  tagTypes: ["supplies"],
   endpoints: (builder) => ({
     getSupllies: builder.query({
       query: () => ({
         url: "/supplies",
         method: "GET",
       }),
+      providesTags: ["supplies"],
     }),
+
     postSupllies: builder.mutation({
       query: (data) => {
         console.log(data);
@@ -20,8 +23,26 @@ export const baseApi = createApi({
           body: data,
         };
       },
+      invalidatesTags: ["supplies"],
+    }),
+
+    deleteSupllies: builder.mutation({
+      query: (options) => {
+        console.log(options);
+        console.log(options.data.id);
+        return {
+          url: `/supplies/${options.id}`,
+          method: "DELETE",
+          body: options,
+        };
+      },
+      invalidatesTags: ["supplies"],
     }),
   }),
 });
 
-export const { useGetSuplliesQuery, usePostSuplliesMutation } = baseApi;
+export const {
+  useGetSuplliesQuery,
+  usePostSuplliesMutation,
+  useDeleteSuplliesMutation,
+} = baseApi;

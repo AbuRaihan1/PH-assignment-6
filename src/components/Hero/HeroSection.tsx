@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const HeroSection = () => {
   const bannerImg = "bg-[url('../src/assets/bannerPhoto.jpg')]";
   return (
-    <div className="mt-6 relative">
+    <div className="mt-6 relative pb-12">
       <div
         className={`${bannerImg} p-5 rounded-xl bg-cover bg-no-repeat h-[500px] bg-fixed relative `}
       >

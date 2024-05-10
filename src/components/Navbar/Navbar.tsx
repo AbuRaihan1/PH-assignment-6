@@ -13,9 +13,12 @@ export default function Component() {
           Food Distribution
         </span>
       </Navbar.Brand>
-      <div className="flex md:order-2">
+      <div className="flex md:order-2 gap-2">
         <Link to="/login">
           <Button>Log in</Button>
+        </Link>
+        <Link to="/dashboard">
+          <Button>Dashboard</Button>
         </Link>
         <Navbar.Toggle />
       </div>
