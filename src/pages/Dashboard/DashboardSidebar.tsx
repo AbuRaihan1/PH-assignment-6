@@ -1,7 +1,7 @@
 "use client";
 
 import { Sidebar } from "flowbite-react";
-import { HiChartPie, HiLogout, HiPlus } from "react-icons/hi";
+import { HiChartPie, HiHome, HiLogout, HiPlus } from "react-icons/hi";
 import { Link } from "react-router-dom";
 
 function DashboardSidebar() {
@@ -21,6 +21,12 @@ function DashboardSidebar() {
           <Sidebar.Item href="#" icon={HiLogout}>
             Logout
           </Sidebar.Item>
+
+          <Link to="/">
+            <Sidebar.Item href="#" icon={HiHome}>
+              Back to Home
+            </Sidebar.Item>
+          </Link>
         </Sidebar.ItemGroup>
       </Sidebar.Items>
     </Sidebar>
