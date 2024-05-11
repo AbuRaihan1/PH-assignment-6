@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import aboutImg from "../../assets/aboutBanner.jpg";
 const Mission = () => {
   return (
-    <div className="grid md:grid-cols-2 justify-center gap-10 grid-cols-1 my-12">
+    <div className="grid md:grid-cols-2 justify-center gap-10 grid-cols-1 my-12  rounded-xl p-4 border">
       <div className="">
         <img
           className="w-full rounded-ss-full rounded-ee-full"
@@ -32,7 +32,7 @@ const Mission = () => {
             the joy in a child’s eyes when they receive their daily sustenance,
           </p>
         </div>
-        <Link to={"/about"}>
+        <Link to={"/about"} className="inline">
           <Button className="mt-5 w-full md:max-w-36">See more</Button>{" "}
         </Link>
       </div>
