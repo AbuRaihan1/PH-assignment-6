@@ -3,7 +3,7 @@ import { useGetSuplliesQuery } from "../../redux/api/api";
 
 const Dashboard = () => {
   const { data, isLoading } = useGetSuplliesQuery(undefined);
-
+console.log(data);
   if (isLoading) {
     return <div>Loading...</div>;
   }

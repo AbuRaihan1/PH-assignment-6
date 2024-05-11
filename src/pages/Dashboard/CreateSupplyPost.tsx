@@ -23,7 +23,14 @@ const CreateSupplyPost = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(formData);
     postData(formData);
+    setFormData({
+      image: "",
+      title: "",
+      quantity: "",
+      category: "",
+    });
     // console.log(formData);
   };
 

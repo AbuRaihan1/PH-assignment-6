@@ -1,12 +1,12 @@
 import { Button } from "flowbite-react";
 import { Link } from "react-router-dom";
-import aboutImg from "../../assets/aboutBanner.jpg";
+import aboutImg from "../../assets/aboutBanner2.jpg";
 const Mission = () => {
   return (
     <div className="grid md:grid-cols-2 justify-center gap-10 grid-cols-1 my-12  rounded-xl p-4 border">
       <div className="">
         <img
-          className="w-full rounded-ss-full rounded-ee-full"
+          className="w-full rounded-ss-full rounded-ee-full h-[400px]"
           src={aboutImg}
           alt=""
         />
