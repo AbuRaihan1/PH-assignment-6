@@ -3,7 +3,7 @@ import importedImg from "../../assets/foodPng.jpg";
 const SuplyCard = ({ supply }) => {
   const { title, image, _id, category, quantity } = supply;
   return (
-    <div className="w-full border p-3">
+    <div className="w-full border p-3 rounded-lg">
       <img
         className="rounded-lg h-[200px] w-full"
         src={image || importedImg}
