@@ -17,7 +17,11 @@ const SupplyDetails = () => {
     <>
       <div className="flex justify-center items-center my-10">
         <div className=" md:max-w-lg md:min-w-lg w-full border p-3 rounded-lg">
-          <img src={importedImg} alt="" className="w-full rounded-lg" />
+          <img
+            src={image || importedImg}
+            alt=""
+            className="w-full rounded-lg h-[230px]"
+          />
           <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white my-2">
             {title}
           </h5>

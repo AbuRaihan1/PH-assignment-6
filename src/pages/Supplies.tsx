@@ -7,13 +7,20 @@ const Supplies = () => {
     return <div>Loading...</div>;
   }
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-6">
-      {suupplyItem?.map((supply, idx) => (
-        <div className="flex justify-center items-center" key={idx}>
-          <SuplyCard supply={supply} />
+    <>
+      <div className="mt-5">
+        <div className="text-center text-2xl md:text-3xl font-bold">
+          <h2>Essential Suplies</h2>
         </div>
-      ))}
-    </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-6">
+          {suupplyItem?.map((supply, idx) => (
+            <div className="flex justify-center items-center" key={idx}>
+              <SuplyCard supply={supply} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
   );
 };
 
