@@ -35,70 +35,74 @@ const CreateSupplyPost = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen">
-      <form
-        className="flex w-full max-w-md flex-col gap-4"
-        onSubmit={handleSubmit}
-      >
-        <div>
-          <div className="mb-2 block">
-            <Label htmlFor="image" value="Image Link" />
-          </div>
-          <TextInput
-            id="image"
-            name="image"
-            type="text"
-            value={formData.image}
-            onChange={handleChange}
-            placeholder="https://example.com/image.jpg"
-            required
-          />
+    <>
+      <div>
+        <div className="flex justify-center items-center h-screen">
+          <form
+            className="flex w-full max-w-md flex-col gap-4 border p-5 rounded-lg"
+            onSubmit={handleSubmit}
+          >
+            <div>
+              <div className="mb-2 block">
+                <Label htmlFor="image" value="Image Link" />
+              </div>
+              <TextInput
+                id="image"
+                name="image"
+                type="text"
+                value={formData.image}
+                onChange={handleChange}
+                placeholder="do not press anything, if not have live url "
+                // required
+              />
+            </div>
+            <div>
+              <div className="mb-2 block">
+                <Label htmlFor="title" value="Title" />
+              </div>
+              <TextInput
+                id="title"
+                name="title"
+                type="text"
+                value={formData.title}
+                onChange={handleChange}
+                placeholder="Enter title"
+                required
+              />
+            </div>
+            <div>
+              <div className="mb-2 block">
+                <Label htmlFor="quantity" value="Quantity" />
+              </div>
+              <TextInput
+                id="quantity"
+                name="quantity"
+                type="text"
+                value={formData.quantity}
+                onChange={handleChange}
+                placeholder="Enter quantity"
+                required
+              />
+            </div>
+            <div>
+              <div className="mb-2 block">
+                <Label htmlFor="category" value="Category" />
+              </div>
+              <TextInput
+                id="category"
+                name="category"
+                type="text"
+                value={formData.category}
+                onChange={handleChange}
+                placeholder="Enter category"
+                required
+              />
+            </div>
+            <Button type="submit">Submit Post</Button>
+          </form>
         </div>
-        <div>
-          <div className="mb-2 block">
-            <Label htmlFor="title" value="Title" />
-          </div>
-          <TextInput
-            id="title"
-            name="title"
-            type="text"
-            value={formData.title}
-            onChange={handleChange}
-            placeholder="Enter title"
-            required
-          />
-        </div>
-        <div>
-          <div className="mb-2 block">
-            <Label htmlFor="quantity" value="Quantity" />
-          </div>
-          <TextInput
-            id="quantity"
-            name="quantity"
-            type="number"
-            value={formData.quantity}
-            onChange={handleChange}
-            placeholder="Enter quantity"
-            required
-          />
-        </div>
-        <div>
-          <div className="mb-2 block">
-            <Label htmlFor="category" value="Category" />
-          </div>
-          <TextInput
-            id="category"
-            name="category"
-            type="text"
-            value={formData.category}
-            onChange={handleChange}
-            placeholder="Enter category"
-            required
-          />
-        </div>
-        <Button type="submit">Submit</Button>
-      </form>
-    </div>
+      </div>
+    </>
   );
 };
 

@@ -6,7 +6,6 @@ import { useGetSuplliesQuery } from "../redux/api/api";
 
 const Home = () => {
   const { data } = useGetSuplliesQuery(undefined);
-
   return (
     <div>
       <HeroSection />

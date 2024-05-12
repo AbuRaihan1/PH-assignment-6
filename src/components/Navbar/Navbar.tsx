@@ -8,11 +8,11 @@ export default function Component() {
     isActive ? "text-cyan-500" : "navbar-link";
   return (
     <Navbar fluid rounded className="shadow-lg bg-white">
-      <Navbar.Brand href="/">
+      <Link to="/">
         <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-          Food Distribution
+          Child Care
         </span>
-      </Navbar.Brand>
+      </Link>
       <div className="flex md:order-2 gap-2">
         <Link to="/login">
           <Button>Log in</Button>

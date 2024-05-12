@@ -10,9 +10,9 @@ const HeroSection = () => {
       >
         <div className="absolute inset-0 bg-black bg-opacity-40 rounded-xl"></div>
 
-        <h2 className="text-3xl md:text-5xl text-white font-bold relative mt-10">
-          No Empty Plates, <br />
-          <span className="md:text-4xl text-2xl">No Hungry Hearts</span>
+        <h2 className="text-3xl md:text-5xl text-white font-bold relative mt-20">
+          No Empty Plates. <br />
+          <span className="md:text-4xl text-2xl">No Hungry Hearts.</span>
         </h2>
         <p className="py-5 md:w-1/2 w-full text-white font-semibold relative ">
           We are on a mission to create lasting change. Our commitment? No empty

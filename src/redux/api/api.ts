@@ -28,8 +28,6 @@ export const baseApi = createApi({
 
     deleteSupllies: builder.mutation({
       query: (options) => {
-        console.log(options);
-        console.log(options.data.id);
         return {
           url: `/supplies/${options.id}`,
           method: "DELETE",
