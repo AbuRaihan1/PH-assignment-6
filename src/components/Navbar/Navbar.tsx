@@ -26,11 +26,9 @@ export default function Component() {
         <NavLink className={generateClassName} to="/">
           Home{" "}
         </NavLink>
-        <NavLink className={generateClassName} to="/about">
-          About
-        </NavLink>
+
         <NavLink className={generateClassName} to="/supplies">
-          Foods
+          Supplies 
         </NavLink>
       </Navbar.Collapse>
     </Navbar>

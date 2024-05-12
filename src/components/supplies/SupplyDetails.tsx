@@ -1,18 +1,27 @@
+import { Button } from "flowbite-react";
 import { useParams } from "react-router-dom";
 import importedImg from "../../assets/foodPng.jpg";
 import { useGetSuplliesQuery } from "../../redux/api/api";
 
+type TItem = {
+  title: string;
+  category: string;
+  quantity: string;
+  image: string;
+  description: string;
+  _id: string;
+};
+
 const SupplyDetails = () => {
   const { data: supplyDetailsData, isLoading } = useGetSuplliesQuery(undefined);
   const { _id } = useParams();
-  console.log(_id);
   if (isLoading) {
     return <div>Loading...</div>;
   }
-  console.log(supplyDetailsData);
-  const singleItem = supplyDetailsData.find((item) => item._id === _id);
+
+  const singleItem = supplyDetailsData.find((item: TItem) => item._id === _id);
   const { title, category, quantity, image, description } = singleItem;
-  console.log(singleItem);
+
   return (
     <>
       <div className="flex justify-center items-center my-10">
@@ -36,6 +45,8 @@ const SupplyDetails = () => {
           <p className="text-justify text-md text-gray-600 font-semibold">
             {description}
           </p>
+
+          <Button>Donate Now </Button>
         </div>
       </div>
     </>

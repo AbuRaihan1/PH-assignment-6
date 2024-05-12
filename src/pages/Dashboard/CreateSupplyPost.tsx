@@ -11,6 +11,7 @@ const CreateSupplyPost = () => {
     title: "",
     quantity: "",
     category: "",
+    description: "",
   });
 
   const handleChange = (e) => {
@@ -30,6 +31,7 @@ const CreateSupplyPost = () => {
       title: "",
       quantity: "",
       category: "",
+      description: "",
     });
     // console.log(formData);
   };
@@ -52,7 +54,7 @@ const CreateSupplyPost = () => {
                 type="text"
                 value={formData.image}
                 onChange={handleChange}
-                placeholder="do not press anything, if not have live url "
+                placeholder="do not press anything, if don't have live URL "
                 // required
               />
             </div>
@@ -95,6 +97,20 @@ const CreateSupplyPost = () => {
                 value={formData.category}
                 onChange={handleChange}
                 placeholder="Enter category"
+                required
+              />
+            </div>
+            <div>
+              <div className="mb-2 block">
+                <Label htmlFor="category" value="Category" />
+              </div>
+              <TextInput
+                id="description"
+                name="description"
+                type="text"
+                value={formData.description}
+                onChange={handleChange}
+                placeholder="Enter description"
                 required
               />
             </div>

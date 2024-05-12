@@ -10,21 +10,25 @@ const HomeSuplliesSec = ({ data }) => {
         </div>
         {data?.length > 0 ? (
           <div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-5">
               {data?.slice(0, 6).map((supply) => (
                 <SuplyCard supply={supply} />
               ))}
             </div>
 
-            <div className="flex justify-center items-center my-10">
-              <Link to="/supplies">
-                <Button className="w-60">View All</Button>
-              </Link>
-            </div>
+            {data?.length > 6 && (
+              <div className="flex justify-center items-center my-10">
+                <Link to="/supplies">
+                  <Button className="w-60">View All</Button>
+                </Link>
+              </div>
+            )}
           </div>
         ) : (
           <div className="flex justify-center items-center flex-col gap-4 text-center">
-            <p className="md:text-2xl text-xl text-gray-600 font-bold">No data available</p>
+            <p className="md:text-2xl text-xl text-gray-600 font-bold">
+              No data available
+            </p>
             <Link to="/dashboard/create-post">
               <Button className="mb-2">Create Post</Button>
             </Link>

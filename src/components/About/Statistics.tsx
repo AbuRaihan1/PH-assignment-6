@@ -26,7 +26,7 @@ const Statistics = () => {
   const [counterOn, setCounterOn] = useState(false);
   return (
     <div className="container mx-auto">
-      <div className="text-center lg:text-5xl text-3xl font-bold text-secondary">
+      <div className="text-center md:text-3xl text-2xl font-bold text-secondary">
         <h2>Statistics</h2>
       </div>
 

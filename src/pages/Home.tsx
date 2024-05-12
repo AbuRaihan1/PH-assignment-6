@@ -1,4 +1,6 @@
 import Mission from "../components/About/Mission";
+import Statistics from "../components/About/Statistics";
+import AboutFaq from "../components/Faq/AboutFaq";
 import HeroSection from "../components/Hero/HeroSection";
 import Testimonial from "../components/Testimonial/Testimonial";
 import HomeSuplliesSec from "../components/supplies/HomeSuplliesSec";
@@ -11,6 +13,8 @@ const Home = () => {
       <HeroSection />
       <HomeSuplliesSec data={data} />
       <Mission />
+      <AboutFaq />
+      <Statistics />
       <Testimonial />
     </div>
   );

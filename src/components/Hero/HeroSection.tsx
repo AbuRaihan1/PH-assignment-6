@@ -19,7 +19,7 @@ const HeroSection = () => {
           plates, no hungry hearts. Join us in the fight against hunger, because
           together, we can nourish hope and build a brighter future for all.
         </p>
-        <Link to="/about" className="inline relative">
+        <Link to="/supplies" className="inline relative">
           <Button className="inline">See more</Button>
         </Link>
       </div>
