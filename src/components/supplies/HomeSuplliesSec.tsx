@@ -11,8 +11,8 @@ const HomeSuplliesSec = ({ data }) => {
         {data?.length > 0 ? (
           <div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-5">
-              {data?.slice(0, 6).map((supply) => (
-                <SuplyCard supply={supply} />
+              {data?.slice(0, 6).map((supply, idx) => (
+                <SuplyCard supply={supply} key={idx} />
               ))}
             </div>
 

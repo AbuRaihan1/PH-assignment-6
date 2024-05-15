@@ -28,7 +28,7 @@ export default function Component() {
         </NavLink>
 
         <NavLink className={generateClassName} to="/supplies">
-          Supplies 
+          Supplies
         </NavLink>
       </Navbar.Collapse>
     </Navbar>
