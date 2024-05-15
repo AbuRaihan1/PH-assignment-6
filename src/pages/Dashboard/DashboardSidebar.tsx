@@ -3,7 +3,13 @@
 import { Drawer, Sidebar } from "flowbite-react";
 import { useState } from "react";
 import { FaBars } from "react-icons/fa6";
-import { HiChartPie, HiHome, HiLogout, HiPlus } from "react-icons/hi";
+import {
+  HiChartPie,
+  HiHome,
+  HiLogout,
+  HiPlus,
+  HiChartBar,
+} from "react-icons/hi";
 
 import { Link } from "react-router-dom";
 
@@ -18,7 +24,7 @@ function DashboardSidebar() {
           onClick={() => setIsOpen(true)}
           className="mt-2 ml-2 fixed z-40"
         >
-          <FaBars className="h-10 w-10 bg-gray-100 p-3 rounded-full " />
+          <FaBars className="h-10 w-10 bg-gray-100 p-3 rounded-full  border" />
         </button>
       </div>
       <Drawer open={isOpen} onClose={handleClose} className="z-50">
@@ -34,6 +40,12 @@ function DashboardSidebar() {
                   <Sidebar.ItemGroup>
                     <Link to="/dashboard">
                       <Sidebar.Item icon={HiChartPie}> Dashboard </Sidebar.Item>
+                    </Link>
+
+                    <Link to="/dashboard/supplies">
+                      <Sidebar.Item icon={HiChartBar} labelColor="dark">
+                        All Supplies
+                      </Sidebar.Item>
                     </Link>
 
                     <Link to="/dashboard/create-post">

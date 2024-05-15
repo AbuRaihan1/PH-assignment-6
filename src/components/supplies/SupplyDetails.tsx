@@ -1,7 +1,19 @@
-import { Button } from "flowbite-react";
+import {
+  Button,
+  Table,
+  TableBody,
+  TableHead,
+  TableHeadCell,
+} from "flowbite-react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import importedImg from "../../assets/foodPng.jpg";
-import { useGetSuplliesQuery } from "../../redux/api/api";
+import {
+  useGetDonarsDataQuery,
+  useGetSuplliesQuery,
+} from "../../redux/api/api";
+import DonarData from "./DonarData";
+import DonateModal from "./DonateModal";
 
 type TItem = {
   title: string;
@@ -13,9 +25,16 @@ type TItem = {
 };
 
 const SupplyDetails = () => {
-  const { data: supplyDetailsData, isLoading } = useGetSuplliesQuery(undefined);
+  const [openModal, setOpenModal] = useState(false);
+  const { data: supplyDetailsData, isLoading: supplyLoading } =
+    useGetSuplliesQuery(undefined);
+
+  const { data: donateData, isLoading: donateLoading } =
+    useGetDonarsDataQuery("");
+  console.log(donateData);
+
   const { _id } = useParams();
-  if (isLoading) {
+  if (supplyLoading) {
     return <div>Loading...</div>;
   }
 
@@ -46,7 +65,27 @@ const SupplyDetails = () => {
             {description}
           </p>
 
-          <Button>Donate Now </Button>
+          <Button onClick={() => setOpenModal(true)}>Donate Now </Button>
+          <DonateModal openModal={openModal} setOpenModal={setOpenModal} />
+        </div>
+      </div>
+
+      <div>
+        <div className="mx-auto">
+          <h2 className="text-center text-xl md:text-3xl mb-6">
+            Doner details
+          </h2>
+          <Table striped className="w-full md:max-w-xl mx-auto">
+            <TableHead>
+              <TableHeadCell>Donar Name</TableHeadCell>
+              <TableHeadCell>Amount</TableHeadCell>
+            </TableHead>
+            <TableBody className="">
+              {donateData?.map((donar, idx) => (
+                <DonarData donar={donar} key={idx} />
+              ))}
+            </TableBody>
+          </Table>
         </div>
       </div>
     </>

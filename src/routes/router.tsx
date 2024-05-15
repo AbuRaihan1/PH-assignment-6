@@ -8,6 +8,7 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Supplies from "../pages/Supplies";
+import AllSupplies from "../pages/Dashboard/AllSupplies";
 
 export const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ export const router = createBrowserRouter([
       {
         path: "create-post",
         element: <CreateSupplyPost />,
+      },
+      {
+        path: "supplies",
+        element: <AllSupplies />,
       },
       {
         index: true,

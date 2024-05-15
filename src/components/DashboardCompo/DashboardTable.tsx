@@ -1,4 +1,4 @@
-import { Table, TableCell, TableRow } from "flowbite-react";
+import {TableCell, TableRow } from "flowbite-react";
 import { HiPencil, HiTrash } from "react-icons/hi";
 import importedImg from "../../assets/foodPng.jpg";
 import { useDeleteSuplliesMutation } from "../../redux/api/api";
@@ -8,9 +8,10 @@ type TItem = {
   image: string;
   quantity: string;
   category: string;
+  _id: string;
 };
 
-function DashboardTable({ item} ) {
+function DashboardTable({ item }: { item: TItem }) {
   const { title, image, quantity, category } = item;
   const [deleteSupllies] = useDeleteSuplliesMutation();
 
@@ -29,7 +30,7 @@ function DashboardTable({ item} ) {
   };
 
   return (
-    <TableRow className="bg-white">
+    <TableRow className="bg-white border">
       <TableCell className="whitespace-nowrap font-medium text-gray-900">
         <img className="h-12 w-28" src={importedImg} />
       </TableCell>
