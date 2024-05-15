@@ -1,46 +1,47 @@
-import { Cell, Pie, PieChart, Tooltip, XAxis } from "recharts";
-
-const data = [
-  { name: "Raihan", value: 400 },
-  { name: "Shiblu", value: 300 },
-  { name: "Tutul", value: 300 },
-  { name: "Ratul", value: 200 },
-];
-
-const arr1 = [
-  { name: "apple", price: 5 },
-  { name: "apple", price: 4 },
-  { name: "apple", price: 10 },
-];
-
-const arr2 = [
-  { name: "apple", quantity: 2 },
-  { name: "apple", quantity: 1 },
-  { name: "apple", quantity: 3 },
-];
+import { Cell, Pie, PieChart, Tooltip } from "recharts";
+import DonarTableWrapper from "../../components/supplies/DonarTableWrapper";
+import { useGetDonarsDataQuery } from "../../redux/api/api";
 
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
 const Chart = () => {
+  const { data: getDonars, isLoading } = useGetDonarsDataQuery("");
+
+  if (isLoading || !getDonars) {
+    return <div>Loading...</div>;
+  }
+
+  const formattedData = getDonars.map((donor, index) => ({
+    name: donor.donerName,
+    value: parseFloat(donor.donerAmount),
+    fill: COLORS[index % COLORS.length],
+  }));
+
   return (
-    <PieChart width={300} height={300}>
-      <Pie
-        dataKey="value"
-        isAnimationActive={false}
-        data={data}
-        cx="50%"
-        cy="50%"
-        outerRadius={80}
-        fill="#8884d8"
-        label
-      >
-        <XAxis dataKey="name" />
-        {data.map((entry, index) => (
-          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-        ))}
-      </Pie>
-      <Tooltip />
-    </PieChart>
+    <>
+      <div className="flex justify-center items-center">
+        <PieChart width={300} height={300}>
+          <Pie
+            dataKey="value"
+            data={formattedData}
+            cx="50%"
+            cy="50%"
+            outerRadius={80}
+            fill="#8884d8"
+            label
+          >
+            {formattedData.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={entry.fill} />
+            ))}
+          </Pie>
+          <Tooltip />
+        </PieChart>
+      </div>
+
+      <div className="mb-10 border border-red-300 pb-10">
+        <DonarTableWrapper />
+      </div>
+    </>
   );
 };
 

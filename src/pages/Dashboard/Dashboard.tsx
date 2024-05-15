@@ -8,7 +8,7 @@ const Dashboard = () => {
           Donation Amounts
         </h2>
       </div>
-      <div className="flex justify-center items-center">
+      <div className="mx-auto">
         <Chart />
       </div>
     </div>

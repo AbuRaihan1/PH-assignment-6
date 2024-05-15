@@ -1,10 +1,4 @@
-import {
-  Button,
-  Table,
-  TableBody,
-  TableHead,
-  TableHeadCell,
-} from "flowbite-react";
+import { Button } from "flowbite-react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import importedImg from "../../assets/foodPng.jpg";
@@ -12,7 +6,7 @@ import {
   useGetDonarsDataQuery,
   useGetSuplliesQuery,
 } from "../../redux/api/api";
-import DonarData from "./DonarData";
+import DonarTableWrapper from "./DonarTableWrapper";
 import DonateModal from "./DonateModal";
 
 type TItem = {
@@ -69,25 +63,7 @@ const SupplyDetails = () => {
           <DonateModal openModal={openModal} setOpenModal={setOpenModal} />
         </div>
       </div>
-
-      <div>
-        <div className="mx-auto">
-          <h2 className="text-center text-xl md:text-3xl mb-6">
-            Doner details
-          </h2>
-          <Table striped className="w-full md:max-w-xl mx-auto">
-            <TableHead>
-              <TableHeadCell>Donar Name</TableHeadCell>
-              <TableHeadCell>Amount</TableHeadCell>
-            </TableHead>
-            <TableBody className="">
-              {donateData?.map((donar, idx) => (
-                <DonarData donar={donar} key={idx} />
-              ))}
-            </TableBody>
-          </Table>
-        </div>
-      </div>
+      <DonarTableWrapper />
     </>
   );
 };
