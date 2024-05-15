@@ -9,7 +9,7 @@ import {
 
 const FooterComp = () => {
   return (
-    <Footer container className="">
+    <Footer container className="bg-gray-100">
       <div className="w-full text-center">
         <div className="w-full justify-between sm:flex sm:items-center sm:justify-between">
           <span className="text-xl md:text-3xl ">Child Care</span>

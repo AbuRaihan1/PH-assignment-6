@@ -2,16 +2,19 @@ import { Table, TableBody, TableHead, TableHeadCell } from "flowbite-react";
 import { useGetDonarsDataQuery } from "../../redux/api/api";
 import DonarData from "./DonarData";
 const DonarTableWrapper = () => {
-  const { data: donateData, isLoading: donateLoading } =
-    useGetDonarsDataQuery("");
+  const { data: donateData } = useGetDonarsDataQuery("");
 
   return (
-    <div>
-      <div className="mx-auto mb-10 border-2">
-        <h2 className="text-center text-xl md:text-3xl mb-6">Doner details</h2>
+    <>
+      <div className="mx-auto mb-10 bg-gray-100 pt-7 pb-3 rounded-lg">
+        <div>
+          <h2 className="text-xl md:text-3xl font-bold text-center mb-10 mt-2">
+            Donar List
+          </h2>
+        </div>
         {donateData?.length > 0 ? (
-          <Table striped className="w-full md:max-w-xl mx-auto mb-10 pb-10 border-red-400 border">
-            <TableHead>
+          <Table striped className="w-full md:max-w-xl mx-auto mb-10 pb-10">
+            <TableHead className="border">
               <TableHeadCell>Donar Name</TableHeadCell>
               <TableHeadCell>Amount</TableHeadCell>
             </TableHead>
@@ -29,7 +32,7 @@ const DonarTableWrapper = () => {
           </div>
         )}
       </div>
-    </div>
+    </>
   );
 };
 
