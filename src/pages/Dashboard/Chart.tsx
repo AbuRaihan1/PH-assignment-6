@@ -1,4 +1,14 @@
-import { Cell, Pie, PieChart, Tooltip } from "recharts";
+import {
+  Bar,
+  BarChart,
+  CartesianGrid,
+  Cell,
+  Pie,
+  PieChart,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
 import DonarTableWrapper from "../../components/supplies/DonarTableWrapper";
 import { useGetDonarsDataQuery } from "../../redux/api/api";
 
@@ -17,30 +27,62 @@ const Chart = () => {
 
   return (
     <>
-      <div className=" bg-gray-100 mb-10 pt-5 rounded-lg">
+      <div className=" bg-gray-100 mb-10 pt-5 pb-10 rounded-lg overflow-x-auto">
         <div>
-          <h2 className="text-xl md:text-3xl font-bold text-center">
+          <h2 className="text-xl md:text-3xl font-bold text-center mb-4">
             Donar Chart
           </h2>
         </div>
-        <div className="flex justify-center items-center">
-          <PieChart width={300} height={300}>
-            <Pie
-              dataKey="value"
+        {getDonars.length > 0 ? (
+          <div className="block mx-auto text-center lg:flex lg:justify-between lg:items-center">
+            <PieChart width={300} height={300}>
+              <Pie
+                dataKey="value"
+                data={formattedData}
+                cx="50%"
+                cy="50%"
+                outerRadius={80}
+                fill="#8884d8"
+                label
+              >
+                {formattedData.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={entry.fill} />
+                ))}
+              </Pie>
+              <Tooltip />
+            </PieChart>
+
+            <BarChart
+              width={400}
+              height={300}
               data={formattedData}
-              cx="50%"
-              cy="50%"
-              outerRadius={80}
-              fill="#8884d8"
-              label
+              margin={{
+                top: 5,
+                right: 30,
+                left: 20,
+                bottom: 5,
+              }}
+              barSize={20}
             >
-              {formattedData.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={entry.fill} />
-              ))}
-            </Pie>
-            <Tooltip />
-          </PieChart>
-        </div>
+              <XAxis
+                dataKey="name"
+                // scale="point"
+                padding={{ left: 10, right: 10 }}
+              />
+              <YAxis dataKey="value" />
+              <Tooltip />
+              {/* <Legend /> */}
+              <CartesianGrid strokeDasharray="3 3" />
+              <Bar dataKey="value" fill="#ff5200" />
+            </BarChart>
+          </div>
+        ) : (
+          <div>
+            <h2 className="text-xl md:text-3xl text-center text-red-500">
+              We haven't received any donation amount so far. :(
+            </h2>
+          </div>
+        )}
       </div>
 
       <div className="">

@@ -6,7 +6,7 @@ const DonarTableWrapper = () => {
 
   return (
     <>
-      <div className="mx-auto mb-10 bg-gray-100 pt-7 pb-3 rounded-lg">
+      <div className="mx-auto mb-10 bg-gray-100 pt-7 pb-10 rounded-lg">
         <div>
           <h2 className="text-xl md:text-3xl font-bold text-center mb-10 mt-2">
             Donar List
