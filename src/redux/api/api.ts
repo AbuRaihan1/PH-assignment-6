@@ -40,7 +40,6 @@ export const baseApi = createApi({
     // doner data
     donatePost: builder.mutation({
       query: (donate) => {
-        console.log(donate);
         return {
           url: "/donate",
           method: "POST",

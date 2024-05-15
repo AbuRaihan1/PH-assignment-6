@@ -1,29 +1,43 @@
 import { Button, Label, Modal, TextInput } from "flowbite-react";
 import { useState } from "react";
-import {
-  useDonatePostMutation,
-  useGetDonarsDataQuery,
-} from "../../redux/api/api";
-const DonateModal = ({ openModal, setOpenModal }) => {
-  const [name, setName] = useState("");
+import Swal from "sweetalert2";
+import { useDonatePostMutation } from "../../redux/api/api";
+const DonateModal = ({ openModal, setOpenModal, onCloseModal }) => {
   const [donatePostData, { data, isError }] = useDonatePostMutation();
-  
 
   const [donerName, setDonarName] = useState("");
   const [donerAmount, setDonerAmount] = useState(0);
 
-  const onCloseModal = () => {
-    setOpenModal(false);
-    setName("");
-  };
-
-  const donatePost = (e) => {
+  const donatePost = async (e) => {
     e.preventDefault();
     const donerData = {
       donerAmount,
       donerName,
     };
-    donatePostData(donerData);
+    const response = await donatePostData(donerData);
+    const message = response.data.message;
+    try {
+      if (response.data.success) {
+        Swal.fire({
+          icon: "success",
+          title: "Success!",
+          text: message,
+        });
+        onCloseModal();
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Failed to post data.",
+        });
+      }
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Failed to post data.",
+      });
+    }
   };
 
   return (
@@ -42,8 +56,8 @@ const DonateModal = ({ openModal, setOpenModal }) => {
               <TextInput
                 id="name"
                 placeholder="John Doe"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                // value={name}
+                // onChange={(e) => setName(e.target.value)}
                 onBlur={(e) => setDonarName(e.target.value)}
                 required
               />

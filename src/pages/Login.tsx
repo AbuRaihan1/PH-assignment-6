@@ -1,6 +1,15 @@
 import { Button, Card, Checkbox, Label, TextInput } from "flowbite-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
+const alert = () => {
+  Swal.fire({
+    title: "Sorry!",
+    text: `This login form doesn't work yet.  
+     Back to home`,
+    icon: "error",
+  });
+};
 const Login = () => {
   return (
     <div className="flex justify-center items-center h-screen">
@@ -36,7 +45,7 @@ const Login = () => {
           </div>
           <div className="flex items-center gap-5">
             <Label className="flex">
-              New here? 
+              New here?
               <a
                 href="#"
                 className="text-cyan-600 hover:underline dark:text-cyan-500 ml-2"
@@ -45,7 +54,9 @@ const Login = () => {
               </a>
             </Label>
           </div>
-          <Button type="submit">Submit</Button>
+          <Button type="submit" onClick={alert}>
+            Submit
+          </Button>
         </form>
       </Card>
     </div>

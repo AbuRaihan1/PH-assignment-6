@@ -4,8 +4,7 @@ import { useState } from "react";
 import { usePostSuplliesMutation } from "../../redux/api/api";
 
 const CreateSupplyPost = () => {
-  const [postData, { data, isLoading, isError, isSuccess }] =
-    usePostSuplliesMutation();
+  const [postData] = usePostSuplliesMutation();
   const [formData, setFormData] = useState({
     image: "",
     title: "",
@@ -24,7 +23,6 @@ const CreateSupplyPost = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
     postData(formData);
     setFormData({
       image: "",
@@ -51,7 +49,7 @@ const CreateSupplyPost = () => {
               <TextInput
                 id="image"
                 name="image"
-                type="text"
+                type="url"
                 value={formData.image}
                 onChange={handleChange}
                 placeholder="do not press anything, if don't have live URL "
@@ -102,7 +100,7 @@ const CreateSupplyPost = () => {
             </div>
             <div>
               <div className="mb-2 block">
-                <Label htmlFor="category" value="Category" />
+                <Label htmlFor="description" value="Description" />
               </div>
               <TextInput
                 id="description"

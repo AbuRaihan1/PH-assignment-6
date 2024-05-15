@@ -1,7 +1,15 @@
 import { Button, Checkbox, Label, TextInput } from "flowbite-react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Register = () => {
+  const alert = () => {
+    Swal.fire({
+      title: "Sorry!",
+      text: `This register form doesn't work yet. Back to home`,
+      icon: "error",
+    });
+  };
   return (
     <div className="flex justify-center h-screen items-center">
       <form className="flex w-full max-w-md flex-col gap-4 shadow-xl p-5 rounded-md border ">
@@ -44,19 +52,6 @@ const Register = () => {
           />
         </div>
 
-        <div className="flex items-center gap-2">
-          <Checkbox id="agree" />
-          <Label htmlFor="agree" className="flex">
-            I agree with the&nbsp;
-            <a
-              href="#"
-              className="text-cyan-600 hover:underline dark:text-cyan-500"
-            >
-              terms and conditions
-            </a>
-          </Label>
-        </div>
-
         <div className="flex items-center gap-5">
           <Label className="flex">
             Have an account?
@@ -68,7 +63,9 @@ const Register = () => {
             </a>
           </Label>
         </div>
-        <Button type="submit">Register new account</Button>
+        <Button type="submit" onClick={alert}>
+          Register new account
+        </Button>
       </form>
     </div>
   );

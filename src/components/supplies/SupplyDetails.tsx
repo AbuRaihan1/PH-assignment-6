@@ -2,10 +2,7 @@ import { Button } from "flowbite-react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import importedImg from "../../assets/foodPng.jpg";
-import {
-  useGetDonarsDataQuery,
-  useGetSuplliesQuery,
-} from "../../redux/api/api";
+import { useGetSuplliesQuery } from "../../redux/api/api";
 import DonarTableWrapper from "./DonarTableWrapper";
 import DonateModal from "./DonateModal";
 
@@ -22,12 +19,12 @@ const SupplyDetails = () => {
   const [openModal, setOpenModal] = useState(false);
   const { data: supplyDetailsData, isLoading: supplyLoading } =
     useGetSuplliesQuery(undefined);
-
-  const { data: donateData, isLoading: donateLoading } =
-    useGetDonarsDataQuery("");
-  console.log(donateData);
-
   const { _id } = useParams();
+
+  const onCloseModal = () => {
+    setOpenModal(false);
+  };
+
   if (supplyLoading) {
     return <div>Loading...</div>;
   }
@@ -55,12 +52,16 @@ const SupplyDetails = () => {
             </span>
           </div>
 
-          <p className="text-justify text-md text-gray-600 font-semibold">
+          <p className="text-justify text-md text-gray-600 font-semibold mb-3">
             {description}
           </p>
 
           <Button onClick={() => setOpenModal(true)}>Donate Now </Button>
-          <DonateModal openModal={openModal} setOpenModal={setOpenModal} />
+          <DonateModal
+            onCloseModal={onCloseModal}
+            openModal={openModal}
+            setOpenModal={setOpenModal}
+          />
         </div>
       </div>
       <DonarTableWrapper />
