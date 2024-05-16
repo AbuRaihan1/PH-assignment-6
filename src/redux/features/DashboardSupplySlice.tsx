@@ -3,11 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const DashboardSupplySlice = createSlice({
   name: "dashboardSlice",
   initialState: {},
-  reducers: {
-    deleteSupply : () => {
-        
-    }
-  },
+  reducers: {},
 });
 
 export default DashboardSupplySlice;

@@ -11,7 +11,6 @@ import { useGetSuplliesQuery } from "../../redux/api/api";
 
 const AllSupplies = () => {
   const { data, isLoading } = useGetSuplliesQuery("");
-  console.log(data);
   if (isLoading) {
     return <div>Loading...</div>;
   }

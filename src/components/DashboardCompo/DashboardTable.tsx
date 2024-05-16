@@ -1,5 +1,6 @@
-import {TableCell, TableRow } from "flowbite-react";
+import { TableCell, TableRow } from "flowbite-react";
 import { HiPencil, HiTrash } from "react-icons/hi";
+import Swal from "sweetalert2";
 import importedImg from "../../assets/foodPng.jpg";
 import { useDeleteSuplliesMutation } from "../../redux/api/api";
 
@@ -25,8 +26,26 @@ function DashboardTable({ item }: { item: TItem }) {
     },
   };
 
-  const handleDelete = () => {
-    deleteSupllies(options);
+  const handleDelete = async () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your supply has been deleted.",
+          icon: "success",
+        });
+
+        deleteSupllies(options);
+      }
+    });
   };
 
   return (
